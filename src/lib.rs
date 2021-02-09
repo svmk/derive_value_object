@@ -162,11 +162,12 @@ impl ValueObject {
     }
 
     fn generate_from_str(&self) -> Result<TokenStream2, Error> {
-        const FROM_STR_DEFAULT_TYPES: [&'static str; 16] = [
+        const FROM_STR_DEFAULT_TYPES: [&'static str; 17] = [
             "bool", "char", 
             "f32", "f64", 
             "i8", "i16", "i32", "i64", "i128", "isize",
             "u8", "u16", "u32", "u64", "u128", "usize",
+            "String",
         ];
         let internal_type = self.get_internal_type()?;
         let internal_type_str = format!("{}", internal_type.to_token_stream());
